@@ -162,6 +162,8 @@ find_mode([1, 2, 3, 4, 5, 1, 2, 2, 3]) -> 2
 
 
 def find_mode(my_list: list) -> int:
+    if not my_list:  # Check if the list is empty
+        return None
     from collections import Counter
 
     freq = Counter(my_list)
@@ -194,6 +196,8 @@ rotate_left([1, 2, 3, 4, 5], 2) -> [3, 4, 5, 1, 2]
 
 
 def rotate_left(my_list: list, k: int) -> list:
+    if not my_list:  # Check if the list is empty
+        return []
     k %= len(my_list)  # Handle k greater than list size
     return my_list[k:] + my_list[:k]
 
@@ -210,6 +214,8 @@ rotate_right([1, 2, 3, 4, 5], 2) -> [4, 5, 1, 2, 3]
 
 
 def rotate_right(my_list: list, k: int) -> list:
+    if not my_list:  # Check if the list is empty
+        return []
     k %= len(my_list)  # Handle k greater than list size
     return my_list[-k:] + my_list[:-k]
 
