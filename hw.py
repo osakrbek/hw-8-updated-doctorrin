@@ -7,8 +7,10 @@ Example:
 count_unique_elements([1, 2, 3, 1, 2, 4, 5, 4]) -> 5
 """
 
+
 def count_unique_elements(my_list: list) -> int:
-    pass
+    return len(set(my_list))
+
 
 """
 Exercise-2: Remove duplicates
@@ -19,8 +21,16 @@ Example:
 remove_duplicates([1, 2, 3, 1, 2, 4, 5, 4]) -> [1, 2, 3, 4, 5]
 """
 
+
 def remove_duplicates(my_list: list) -> list:
-    pass
+    seen = set()
+    unique_list = []
+    for item in my_list:
+        if item not in seen:
+            unique_list.append(item)
+            seen.add(item)
+    return unique_list
+
 
 """
 Exercise-3: Reverse a list
@@ -31,8 +41,10 @@ Example:
 reverse_list([1, 2, 3, 4, 5]) -> [5, 4, 3, 2, 1]
 """
 
+
 def reverse_list(my_list: list) -> list:
-    pass
+    return my_list[::-1]
+
 
 """
 Exercise-4: Find the maximum value in a list
@@ -43,8 +55,10 @@ Example:
 max_value([1, 2, 3, 4, 5]) -> 5
 """
 
+
 def max_value(my_list: list) -> int:
-    pass
+    return max(my_list)
+
 
 """
 Exercise-5: Find the minimum value in a list
@@ -55,8 +69,10 @@ Example:
 min_value([1, 2, 3, 4, 5]) -> 1
 """
 
+
 def min_value(my_list: list) -> int:
-    pass
+    return min(my_list)
+
 
 """
 Exercise-6: Sum all values in a list
@@ -67,8 +83,10 @@ Example:
 sum_values([1, 2, 3, 4, 5]) -> 15
 """
 
+
 def sum_values(my_list: list) -> int:
-    pass
+    return sum(my_list)
+
 
 """
 Exercise-7: Find the average of a list
@@ -79,8 +97,10 @@ Example:
 average([1, 2, 3, 4, 5]) -> 3.0
 """
 
+
 def average(my_list: list) -> float:
-    pass
+    return sum(my_list) / len(my_list) if my_list else 0.0
+
 
 """
 Exercise-8: Find the index of an element in a list
@@ -93,8 +113,10 @@ find_index([1, 2, 3, 4, 5], 3) -> 2
 find_index([1, 2, 3, 4, 5], 6) -> -1
 """
 
+
 def find_index(my_list: list, element: int) -> int:
-    pass
+    return my_list.index(element) if element in my_list else -1
+
 
 """
 Exercise-9: Check if a list is sorted
@@ -108,8 +130,10 @@ is_sorted([1, 2, 3, 4, 5]) -> True
 is_sorted([1, 3, 2, 4, 5]) -> False
 """
 
+
 def is_sorted(my_list: list) -> bool:
-    pass
+    return my_list == sorted(my_list)
+
 
 """
 Exercise-10: Count the frequency of an element in a list
@@ -121,8 +145,10 @@ Example:
 count_frequency([1, 2, 3, 4, 5, 1, 2, 3], 3) -> 2
 """
 
+
 def count_frequency(my_list: list, element: int) -> int:
-    pass
+    return my_list.count(element)
+
 
 """
 Exercise-11: Find the mode of a list
@@ -134,8 +160,13 @@ Example:
 find_mode([1, 2, 3, 4, 5, 1, 2, 2, 3]) -> 2
 """
 
+
 def find_mode(my_list: list) -> int:
-    pass
+    from collections import Counter
+
+    freq = Counter(my_list)
+    return max(freq, key=freq.get)
+
 
 """
 Exercise-12: Remove all occurrences of an element in a list
@@ -147,8 +178,10 @@ Example:
 remove_all([1, 2, 3, 4, 5, 1, 2, 3], 3) -> [1, 2, 4, 5, 1, 2]
 """
 
+
 def remove_all(my_list: list, element: int) -> list:
-    pass
+    return [item for item in my_list if item != element]
+
 
 """
 Exercise-13: Rotate a list to the left by k positions
@@ -159,8 +192,11 @@ Example:
 rotate_left([1, 2, 3, 4, 5], 2) -> [3, 4, 5, 1, 2]
 """
 
+
 def rotate_left(my_list: list, k: int) -> list:
-    pass
+    k %= len(my_list)  # Handle k greater than list size
+    return my_list[k:] + my_list[:k]
+
 
 """
 Exercise-14: Rotate a list to the right by k positions
@@ -172,8 +208,11 @@ Example:
 rotate_right([1, 2, 3, 4, 5], 2) -> [4, 5, 1, 2, 3]
 """
 
+
 def rotate_right(my_list: list, k: int) -> list:
-    pass
+    k %= len(my_list)  # Handle k greater than list size
+    return my_list[-k:] + my_list[:-k]
+
 
 """
 Exercise-15: Find the intersection of two lists
@@ -184,8 +223,10 @@ Example:
 find_intersection([1, 2, 3, 4], [3, 4, 5, 6]) -> [3, 4]
 """
 
+
 def find_intersection(list1: list, list2: list) -> list:
-    pass
+    return list(set(list1) & set(list2))
+
 
 """
 Exercise-16: Find the union of two lists
@@ -197,8 +238,10 @@ Example:
 find_union([1, 2, 3, 4], [3, 4, 5, 6]) -> [1, 2, 3, 4, 5, 6]
 """
 
+
 def find_union(list1: list, list2: list) -> list:
-    pass
+    return list(set(list1) | set(list2))
+
 
 """
 Exercise-17: Find the difference of two lists
@@ -211,5 +254,6 @@ Example:
 find_difference([1, 2, 3, 4], [3, 4, 5, 6]) -> [1, 2]
 """
 
+
 def find_difference(list1: list, list2: list) -> list:
-    pass
+    return list(set(list1) - set(list2))
