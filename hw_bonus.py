@@ -46,11 +46,19 @@ find_missing([1, 2, 4]) -> 3
 
 
 def find_missing(my_list: list[int]) -> int:
-    # write your code here
+    if not my_list or len(my_list) < 2:
+        # If the list is empty or contains a single element, return None
+        return None
+
     n = len(my_list) + 1  # Total elements including the missing one
     expected_sum = n * (n + 1) // 2  # Sum of the first n natural numbers
     actual_sum = sum(my_list)
-    return expected_sum - actual_sum
+    missing_number = expected_sum - actual_sum
+
+    # Validate the missing number falls within the expected range
+    if 1 <= missing_number <= n:
+        return missing_number
+    return None
 
 
 """
